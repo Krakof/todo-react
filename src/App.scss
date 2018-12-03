@@ -1,0 +1,122 @@
+@import '~bootstrap/scss/bootstrap.scss';
+$colorGreen: #5dc2af;
+$colorGray: #cccccc;
+$borderGray: #e8e8e8;
+$colorRed: rgba(255, 0, 0, 1);
+$textColor: #444444;
+
+input, button {
+  outline: none;
+}
+
+.App {
+  text-align: center;
+  max-width: 500px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  padding: 40px 0;
+  color: $textColor;
+
+  h1 {
+    text-transform: capitalize;
+  }
+
+  .action {
+    text-align: right;
+
+    &.hide {
+      visibility: hidden;
+    }
+  }
+}
+
+.btn {
+  padding: 0 15px;
+  border-color: #cccccc;
+  opacity: 0.6;
+
+  &--action {
+    font-size: 20px;
+    height: 32px;
+    margin-left: 10px;
+  }
+
+  &--add::after{
+    content: '\2b';
+    color: $colorGreen;
+  }
+
+  &--remove::after{
+    content: '\D7';
+    color: $colorRed;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+  }
+
+  &:not([disabled]):hover {
+    background: #fdfdfd;
+    border: 1px solid $borderGray;
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+
+  .mb-3 {
+    margin-bottom: 0;
+  }
+
+  input {
+    height: 100%;
+
+    &::placeholder {
+      color: $borderGray;
+    }
+  }
+
+  .form-control{
+    &.done {
+      text-decoration: line-through;
+      color: $colorGray
+    }
+    &:focus {
+      box-shadow: 0 0 10px 1px rgba(195, 195, 195, 0.54);
+      border-color: $borderGray;
+    }
+
+  }
+
+  &.new-todo {
+    margin-bottom: 20px
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 0;
+  }
+}
+
+p {
+  font-size: 14px;
+  text-align: left;
+  color: lighten($textColor, 10);
+}
